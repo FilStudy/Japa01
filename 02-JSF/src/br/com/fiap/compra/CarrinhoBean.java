@@ -8,17 +8,26 @@ import javax.faces.bean.ManagedBean;
 @ManagedBean
 public class CarrinhoBean {
 
-	private List<String> selecionados;
-	private List<String> quantidade;
-	private boolean formaPagamento;
+	private List<String> listaProdutos;
+	private String selectQtd;
+	private String formaPagamento;
 	
+	
+
 	public void comprar() {
+		for(String valor : listaProdutos) {
+			System.out.println(valor);
+		}
+		
+		System.out.println(selectQtd);
+		
+		System.out.println(formaPagamento);
 		
 	}
 	
 
 	public List<Produto> getProdutos() {
-		List<Produto> produtos = new ArrayList();
+		List<Produto> produtos = new ArrayList<Produto>();
 		produtos.add(new Produto("Camiseta","Camiseta Azul gola V", 13.52));
 		produtos.add(new Produto("Calça","Calça Jeans", 89.99));
 		produtos.add(new Produto("Shorts","Mini Shorts", 20.50));
@@ -33,38 +42,36 @@ public class CarrinhoBean {
 	}
 
 	
-	public CarrinhoBean(List<String> selecionados, List<String> quantidade, boolean formaPagamento) {
+	public CarrinhoBean(List<String> listaProdutos, String formaPagamento, String selectQtd) {
 		super();
-		this.selecionados = selecionados;
-		this.quantidade = quantidade;
+		this.listaProdutos = listaProdutos;
 		this.formaPagamento = formaPagamento;
+		this.selectQtd = selectQtd;
 	}
 
-
-	public List<String> getQuantidade() {
-		return quantidade;
-	}
-
-	public void setQuantidade(List<String> quantidade) {
-		this.quantidade = quantidade;
-	}
-
-	public boolean isFormaPagamento() {
+	public String getFormaPagamento() {
 		return formaPagamento;
 	}
 
-	public void setFormaPagamento(boolean formaPagamento) {
+	public void setFormaPagamento(String formaPagamento) {
 		this.formaPagamento = formaPagamento;
 	}
-	public List<String> getSelecionados() {
-		return selecionados;
+	public List<String> getListaProdutos() {
+		return listaProdutos;
 	}
 
 
-	public void setSelecionados(List<String> selecionados) {
-		this.selecionados = selecionados;
+	public void setListaProdutos(List<String> listaProdutos) {
+		this.listaProdutos = listaProdutos;
 	}
 	
-	
+	public String getListaSelects() {
+		return selectQtd;
+	}
+
+
+	public void setListaSelects(String selectQtd) {
+		this.selectQtd = selectQtd;
+	}
 	
 }
