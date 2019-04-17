@@ -1,5 +1,7 @@
 package br.com.fiap.login;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
+import javax.faces.context.FacesContext;
 
 @ManagedBean
 public class LoginBean {
@@ -11,13 +13,18 @@ public class LoginBean {
 
 
 
-	public void logar() {
+	public String logar() {
 		if(login.equals("teste") && senha.equals("teste")) {
 			System.out.println("Usuario logado: " + login);
+			return "comprar";
 		}else {
 			System.out.println("Informações inválidas");
+			FacesMessage mensagem = new FacesMessage("Usuário inválido!");
+			FacesContext.getCurrentInstance().addMessage(null, mensagem);
+			FacesMessage mensagem2 = new FacesMessage("Senha inválida!");
+			FacesContext.getCurrentInstance().addMessage(null, mensagem2);
+			return "login";
 		}
-		System.out.println("CheckBox conectado: " + termo);
 	}
 	
 	
