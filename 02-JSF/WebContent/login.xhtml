@@ -6,33 +6,41 @@
 	xmlns:f="http://xmlns.jcp.org/jsf/core">
 <h:head>
 	<title>Login - JSF</title>
-	<h:outputScript library="js" name="jquery.js"/>
-	<h:outputScript library="js" name="bootstrap.bundle.js"/>
-	<h:outputScript library="js" name="bootstrap.bundle.min.js"/>
-	<h:outputScript library="js" name="bootstrap.js"/>
-	<h:outputScript library="js" name="bootstrap.min.js"/>
-	<h:outputStylesheet library="css" name="bootstrap-grid.css"/>
-	<h:outputStylesheet library="css" name="bootstrap-grid.min.css"/>
-	<h:outputStylesheet library="css" name="bootstrap-reboot.css"/>
-	<h:outputStylesheet library="css" name="bootstrap-reboot.min.css"/>
-	<h:outputStylesheet library="css" name="bootstrap.css"/>
-	<h:outputStylesheet library="css" name="bootstrap.min.css"/>
+	<h:outputScript library="js" name="jquery.js" />
+	<h:outputScript library="js" name="bootstrap.bundle.js" />
+	<h:outputScript library="js" name="bootstrap.bundle.min.js" />
+	<h:outputScript library="js" name="bootstrap.js" />
+	<h:outputScript library="js" name="bootstrap.min.js" />
+	<h:outputStylesheet library="css" name="bootstrap-grid.css" />
+	<h:outputStylesheet library="css" name="bootstrap-grid.min.css" />
+	<h:outputStylesheet library="css" name="bootstrap-reboot.css" />
+	<h:outputStylesheet library="css" name="bootstrap-reboot.min.css" />
+	<h:outputStylesheet library="css" name="bootstrap.css" />
+	<h:outputStylesheet library="css" name="bootstrap.min.css" />
 </h:head>
 <h:body>
-<h:messages/>
-	<h:form>
-		<h:panelGrid columns="2">
-			<h:outputLabel value="Login" />
-			<h:inputText value="#{loginBean.login}" />
-			
-			<h:outputLabel value="Senha" />
-			<h:inputSecret value="#{loginBean.senha}" />
-			
-			<h:selectBooleanCheckbox value="#{loginBean.termo}" id="termo" />
-			<h:outputLabel value="Manter conectado" for="termo"/>
-			
-			<h:commandButton action="#{loginBean.logar}" value="Entrar" />
-		</h:panelGrid>
-	</h:form>
+	<ui:composition template="_Template.xhtml">
+		<ui:define name="titulo">
+		Login
+		</ui:define>
+
+		<ui:define name="corpo">
+			<h:messages />
+			<h:form>
+				<h:panelGrid columns="2">
+					<h:outputLabel value="Login" />
+					<h:inputText value="#{loginBean.login}" />
+
+					<h:outputLabel value="Senha" />
+					<h:inputSecret value="#{loginBean.senha}" />
+
+					<h:selectBooleanCheckbox value="#{loginBean.termo}" id="termo" />
+					<h:outputLabel value="Manter conectado" for="termo" />
+
+					<h:commandButton action="#{loginBean.logar}" value="Entrar" />
+				</h:panelGrid>
+			</h:form>
+		</ui:define>
+	</ui:composition>
 </h:body>
 </html>
