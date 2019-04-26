@@ -6,45 +6,61 @@
 	xmlns:f="http://xmlns.jcp.org/jsf/core">
 <h:head>
 	<title>Comprar - JSF</title>
-	<h:outputScript library="js" name="jquery.js"/>
-	<h:outputScript library="js" name="bootstrap.bundle.js"/>
-	<h:outputScript library="js" name="bootstrap.bundle.min.js"/>
-	<h:outputScript library="js" name="bootstrap.js"/>
-	<h:outputScript library="js" name="bootstrap.min.js"/>
-	<h:outputStylesheet library="css" name="bootstrap-grid.css"/>
-	<h:outputStylesheet library="css" name="bootstrap-grid.min.css"/>
-	<h:outputStylesheet library="css" name="bootstrap-reboot.css"/>
-	<h:outputStylesheet library="css" name="bootstrap-reboot.min.css"/>
-	<h:outputStylesheet library="css" name="bootstrap.css"/>
-	<h:outputStylesheet library="css" name="bootstrap.min.css"/>
+	<h:outputScript library="js" name="jquery.js" />
+	<h:outputScript library="js" name="bootstrap.bundle.js" />
+	<h:outputScript library="js" name="bootstrap.bundle.min.js" />
+	<h:outputScript library="js" name="bootstrap.js" />
+	<h:outputScript library="js" name="bootstrap.min.js" />
+	<h:outputStylesheet library="css" name="bootstrap-grid.css" />
+	<h:outputStylesheet library="css" name="bootstrap-grid.min.css" />
+	<h:outputStylesheet library="css" name="bootstrap-reboot.css" />
+	<h:outputStylesheet library="css" name="bootstrap-reboot.min.css" />
+	<h:outputStylesheet library="css" name="bootstrap.css" />
+	<h:outputStylesheet library="css" name="bootstrap.min.css" />
 </h:head>
 <h:body>
-	<h:form>
+
+	<ui:composition template="_Template.xhtml">
+		<ui:define name="titulo">
+		Comprar
+		</ui:define>
+
+		<ui:define name="corpo">
+			<h:messages />
+			<h:form>
+				<h:panelGrid columns="2">
+					<h:form>
 		Produto
 		<h:selectManyCheckbox value="#{carrinhoBean.listaProdutos}">
-			<f:selectItems value="#{carrinhoBean.produtos}" var="produto"
-				itemLabel="#{produto.nome}" itemValue="#{produto.nome}" />
-		</h:selectManyCheckbox>
+							<f:selectItems value="#{carrinhoBean.produtos}" var="produto"
+								itemLabel="#{produto.nome}" itemValue="#{produto.nome}" />
+						</h:selectManyCheckbox>
 		
 		
 		Quantidade
 		<h:selectOneMenu value="#{carrinhoBean.listaSelects}">
-			<f:selectItem itemLabel="1" itemValue="1" />
-			<f:selectItem itemLabel="2" itemValue="2" />
-			<f:selectItem itemLabel="3" itemValue="3" />
-			<f:selectItem itemLabel="4" itemValue="4" />
-			<f:selectItem itemLabel="5" itemValue="5" />
-		</h:selectOneMenu><br/>
+							<f:selectItem itemLabel="1" itemValue="1" />
+							<f:selectItem itemLabel="2" itemValue="2" />
+							<f:selectItem itemLabel="3" itemValue="3" />
+							<f:selectItem itemLabel="4" itemValue="4" />
+							<f:selectItem itemLabel="5" itemValue="5" />
+						</h:selectOneMenu>
+						<br />
 
 		Forma de pagamento
 		<h:selectOneRadio value="#{carrinhoBean.formaPagamento}">
-			<f:selectItem itemLabel="Cartão de Crédito" itemValue="cc" />
-			<f:selectItem itemLabel="Cartão de Débito" itemValue="cd" />
-			<f:selectItem itemLabel="Boleto" itemValue="b" />
-		</h:selectOneRadio>
+							<f:selectItem itemLabel="Cartão de Crédito" itemValue="cc" />
+							<f:selectItem itemLabel="Cartão de Débito" itemValue="cd" />
+							<f:selectItem itemLabel="Boleto" itemValue="b" />
+						</h:selectOneRadio>
 
-		<h:commandButton action="#{carrinhoBean.comprar}" value="Comprar" />
+						<h:commandButton action="#{carrinhoBean.comprar}" value="Comprar" />
 
-	</h:form>
+					</h:form>
+				</h:panelGrid>
+			</h:form>
+		</ui:define>
+	</ui:composition>
+
 </h:body>
 </html>
